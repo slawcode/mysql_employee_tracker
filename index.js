@@ -42,7 +42,7 @@ function prompt() {
             const { choices } = answers;
 
             if (choices === 'View All Departments') {
-                viewAllEmployee();
+                viewAllDepartments();
             }
             if (choices === 'View All Roles') {
                 viewAllRoles();
@@ -69,3 +69,32 @@ function prompt() {
         });
 };
 
+// Function created to view all departments
+function viewAllDepartments() {
+
+}
+
+// Function created to view all roles
+function viewAllRoles() {
+
+}
+
+// Function created to view all employees
+function viewAllEmployees() {
+    
+}
+
+// Function created to add a department
+function addADepartment() {
+
+}
+
+// Function created to add a role
+function addARole() {
+
+}
+
+// Function created to add an employee
+function addAnEmployee() {
+
+}
