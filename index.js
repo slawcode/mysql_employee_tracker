@@ -75,13 +75,13 @@ function viewAllDepartments() {
     const query = 'SELECT * FROM department';
     connection.query(query, (err, res) => {
         if (err) throw err;
-        console.log('Viewing All Departments');
+        console.log('Viewing all departments');
         console.table(res);
         inquirer.prompt([
            {
             type: 'list',
             name: 'choice',
-            message: 'Select A Department',
+            message: 'Select a department',
             choices: [
                 'Main Menu',
                 'Quit'
@@ -123,16 +123,19 @@ function addADepartment() {
                 message: 'Enter the new department name:'
             },
         ])
-        .then((data) => {
+        .then((response) => {
+            console.log(reponse.name);
             connection.query('INSERT INTO department', 
             {
-                name: data.newDepartment,
+                name: response.newDepartment,
             }, 
             function (err) {
-                if 
+                if (err) throw err;
             }
-            })
-        })
+            );
+            console.log('Your new department has been added to the database.')
+            viewAllDepartments();
+        });
 };
 
 // Function created to add a role
