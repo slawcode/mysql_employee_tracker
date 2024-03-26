@@ -36,6 +36,7 @@ function prompt() {
                 'Exit'
             ],
         })
+
         // Conditional statements on user choices 
         .then((answer) => {
             console.log('Answer', answer);
@@ -99,24 +100,40 @@ function viewAllRoles() {
         console.table(res);
         inquirer.prompt();
     });
-
 }
 
 // Function created to view all employees
 function viewAllEmployees() {
     const query = 'SELECT * FROM employees'
-    connection.query(query, (err, res) {
+    connection.query(query, (err, res) => {
         if (err) throw err;
         console.log('Viewing All Employees');
         console.table(res);
         inquirer.prompt();
-    })
+    });
 }
 
 // Function created to add a department
 function addADepartment() {
-
-}
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: 'Enter the new department name:'
+            },
+        ])
+        .then((data) => {
+            connection.query('INSERT INTO department', 
+            {
+                name: data.newDepartment,
+            }, 
+            function (err) {
+                if 
+            }
+            })
+        })
+};
 
 // Function created to add a role
 function addARole() {
