@@ -71,7 +71,15 @@ function prompt() {
 
 // Function created to view all departments
 function viewAllDepartments() {
-
+    const query = 'SELECT * FROM department';
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.log('Viewing All Departments');
+        console.table(res);
+        inquirer.prompt([
+           
+        ]);
+    }); 
 }
 
 // Function created to view all roles
