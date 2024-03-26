@@ -5,11 +5,27 @@ CREATE DATABASE employeeTracker_db;
 -- Use employeeTracker_db
 USE employeeTracker_db;
 
--- Create table for departments 
-CREATE TABLE department 
+-- Create table department within employeeTracker_db
+CREATE TABLE department (
+-- Creates numeric column called 'id' which will automatically increment its default value as new rows are created
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+-- Makes a string column called 'name' which cannot contain null to hold the department name
+name VARCHAR(30) NOT NULL,
+);
 
--- Ctreate table for roles
-CREATE TABLE role
+-- Create table role within employeeTracker_db
+CREATE TABLE role ( 
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+title VARCHAR(30),
+salary DECIMAL,
+department_id INT
+)
 
--- Create table for employees
-CREATE TABLE employees
+-- Create table employees within employeeTracker_db
+CREATE TABLE employees (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+first_name VARCHAR(30),
+last_name VARCHAR(30),
+role_id INT,
+manager_id INT NULL
+)
