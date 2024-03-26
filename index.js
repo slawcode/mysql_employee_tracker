@@ -36,5 +36,36 @@ function prompt() {
                 'Exit'
             ],
         })
-}
+        // Conditional statements on user choices 
+        .then((answer) => {
+            console.log('Answer', answer);
+            const { choices } = answers;
+
+            if (choices === 'View All Departments') {
+                viewAllEmployee();
+            }
+            if (choices === 'View All Roles') {
+                viewAllRoles();
+            }
+            if (choices === 'View All Employees') {
+                viewAllEmployees();
+            }
+            if (choices === 'Add A Department') {
+                addADepartment();
+            }
+            if (choices === 'Add A Role') {
+                addARole();
+            }
+            if (choices === 'Add An Employee') {
+                addAnEmployee();
+            }
+            if (choices === 'Update An Employee Role') {
+                updateAnEmployeeRole();
+            }
+            if (choices === 'Exit') {
+                connection.end()
+                console.log('You are leaving the Employee Tracker.');
+            }
+        });
+};
 
