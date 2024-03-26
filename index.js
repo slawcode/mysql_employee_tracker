@@ -80,7 +80,7 @@ function viewAllDepartments() {
            {
             type: 'list',
             name: 'choice',
-            message: 'Select A Department.',
+            message: 'Select A Department',
             choices: [
                 'Main Menu',
                 'Quit'
@@ -104,7 +104,13 @@ function viewAllRoles() {
 
 // Function created to view all employees
 function viewAllEmployees() {
-    
+    const query = 'SELECT * FROM employees'
+    connection.query(query, (err, res) {
+        if (err) throw err;
+        console.log('Viewing All Employees');
+        console.table(res);
+        inquirer.prompt();
+    })
 }
 
 // Function created to add a department
