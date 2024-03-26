@@ -131,15 +131,34 @@ function addADepartment() {
             }, 
             function (err) {
                 if (err) throw err;
-            }
-            );
+            });
             console.log('Your new department has been added to the database.')
             viewAllDepartments();
+            // Restart the application 
+            prompt(); 
         });
 };
 
 // Function created to add a role
 function addARole() {
+    const query = 'SELECT * FROM departments';
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        inquirer
+            .prompt([
+                {
+                    type: 'input',
+                    name: 'role',
+                    message: 'Enter the new role name:'
+                },
+                {
+                    type: 'input',
+                    name: 'salary',
+                    message: 'Enter the salary of the new role:',
+                }, 
+                {}
+            ])
+    })
 
 }
 
