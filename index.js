@@ -77,13 +77,28 @@ function viewAllDepartments() {
         console.log('Viewing All Departments');
         console.table(res);
         inquirer.prompt([
-           
+           {
+            type: 'list',
+            name: 'choice',
+            message: 'Select A Department.',
+            choices: [
+                'Main Menu',
+                'Quit'
+        ]
+           }
         ]);
     }); 
 }
 
 // Function created to view all roles
 function viewAllRoles() {
+    const query = 'SELECT * FROM role';
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.log('Viewing All Roles');
+        console.table(res);
+        inquirer.prompt();
+    });
 
 }
 
