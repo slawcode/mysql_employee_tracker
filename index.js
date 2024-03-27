@@ -171,7 +171,7 @@ function addARole() {
 
 // Function created to add an employee
 function addAnEmployee() {
-    const query = "SELECT id AS value, title AS name FROM role";
+    const query = 'SELECT id AS VALUE, title AS name FROM role';
     connection.query(query, (err, res) => {
         if (err) console.log(err);
         const query2 = 'SELECT id as value, concat (first_name, " ", last_name) AS name FROM employees'
@@ -202,7 +202,7 @@ function addAnEmployee() {
                     choices: managers
                 }
             ]).then(answers => {
-                connection.query('INSERT into employees(first_name,last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [answers.fName, answers.lName, answers.roleId, answers.managerId])
+                connection.query('INSERT INTO employees(first_name,last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [answers.fName, answers.lName, answers.roleId, answers.managerId])
                 console.log('Your employee was added.');
                 prompt();
             })
@@ -212,28 +212,31 @@ function addAnEmployee() {
 
 // Function created to update an employee role 
 function updateAnEmployeeRole() {
-    const query = "SELECT * FROM employees"; 
+    const query = 'SELECT employees.id, employees.first_name, employees.last_name, role.title FROM employees LEFT JOIN role ON employees.role_id = roles.id'; 
     connection.query(query, (err, res) => {
-        if (err) throw err;
-        const query2 = 
-        inquirer
+        if (err) console.log(err);
+        const query2 = 'SELECT * FROM role';
+        connection.query(query2, (err, role) => {
+            if (err) console.log(err);
+            inquirer
             .prompt([
                 {
                     type: 'list',
-                    name: 'selectEmployee',
-                    message: 'Select the employee to update:',
-                    choices: viewAllEmployees,
+                    name: 'employees',
+                    message: 'Select the employee to update their role:',
+                    choices: res
                 },
                 {
                     type: 'list',
                     name: 'selectNewRole',
                     message: 'Select the employees new role:',
-                    choices: viewAllRoles,
+                    choices: role
                 }
-            ])
-            .then(answer => {
-                connection.query("INSERT INTO ")
+            ]).then(answers => {
+                connection.query('UPDATE employees (employee_id, role_id) VALUES (?, ?)', [answers.employees, answers.role])
+                console.log('Your employee role was updated.');
+                prompt();
             })
-            ])
+        })
     })
-}
+};
