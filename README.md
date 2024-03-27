@@ -47,9 +47,20 @@ If the user does not already have MySQL installed they can go to http://dev.mysq
 - There is no license for this project.
 
 ## Credits
-Olsavsky, E. (2023). SVG logo maker. GitHub [Source Code]. https://github.com/elizabetholsavsky/SVG-logo-maker.git
 
+
+Calle, T. (2023). Thomas SQL Employee Tracker. GitHub [Source Code]. https://github.com/ThomasCalle/Thomas-SQL-Employee-Tracker.git
+
+Cuddeback, A. (2021). Employee Tracker. GitHub [Source Code]. https://github.com/ajcuddeback/EmployeeTracker.git
+
+DopeDev. (2022, November 17). Employee Track (Tutorial) MySQL, Node, Inquirer. [Video]. YouTube. https://www.youtube.com/watch?v=OOgw_kSIc_A
+
+Evans, R. (2021). MySQL Employee Tracker. GitHub [Source Code]. https://github.com/rdevans87/MySQL-Employee-Tracker.git
+
+Marcelino, L. (2021). MySQL Employee Tracker. GitHub [Source Code]. https://github.com/Ethanlloyd21/MySQL-Employee-Tracker.git
 
 Meyers, M. [2024, March 16]. Online tutoring session [Zoom].
+
+Geeks for Geeks. (n.d.). MySQL Joins. https://www.w3schools.com/mysql/mysql_join.asp
 
 University of Toronto. (2023). Coding Boot Camp [Source Code].
