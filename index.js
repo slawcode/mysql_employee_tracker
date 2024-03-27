@@ -212,31 +212,31 @@ function addAnEmployee() {
 
 // Function created to update an employee role 
 function updateAnEmployeeRole() {
-    const query = 'SELECT employees.id, employees.first_name, employees.last_name, role.title FROM employees LEFT JOIN role ON employees.role_id = roles.id'; 
+    const query = 'SELECT employees.id, employees.first_name AS "first name", employees.last_name AS "last name", role.title FROM employees LEFT JOIN role ON employees.role_id = role.id'; 
     connection.query(query, (err, res) => {
         if (err) console.log(err);
         const query2 = 'SELECT * FROM role';
         connection.query(query2, (err, role) => {
             if (err) console.log(err);
             inquirer
-            .prompt([
-                {
-                    type: 'list',
-                    name: 'employees',
-                    message: 'Select the employee to update their role:',
-                    choices: res
-                },
-                {
-                    type: 'list',
-                    name: 'selectNewRole',
-                    message: 'Select the employees new role:',
-                    choices: role
-                }
-            ]).then(answers => {
-                connection.query('UPDATE employees (employee_id, role_id) VALUES (?, ?)', [answers.employees, answers.role])
-                console.log('Your employee role was updated.');
-                prompt();
-            })
+                .prompt([
+                    {
+                        type: 'list',
+                        name: 'employees',
+                        message: 'Select the employee to update their role:',
+                        choices: res
+                    },
+                    {
+                        type: 'list',
+                        name: 'role',
+                        message: 'Select the employees new role:',
+                        choices: role
+                    }
+                ]).then(answers => {
+                    connection.query('UPDATE employees (employee_id, role_id) VALUES (?, ?)', [answers.employees, answers.role])
+                    console.log('Your employee role was updated.');
+                    prompt();
+                })
         })
     })
 };
