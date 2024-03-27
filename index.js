@@ -171,10 +171,10 @@ function addARole() {
 
 // Function created to add an employee
 function addAnEmployee() {
-    const query = "SELECT id as value, title as name FROM role";
+    const query = "SELECT id AS value, title AS name FROM role";
     connection.query(query, (err, res) => {
         if (err) console.log(err);
-        const query2 = 'SELECT id as value, concat (first_name, " ", last_name) as name from employees'
+        const query2 = 'SELECT id as value, concat (first_name, " ", last_name) AS name FROM employees'
         connection.query(query2, (err, managers) => {
             if (err) console.log(err);
             inquirer
@@ -187,23 +187,23 @@ function addAnEmployee() {
                 {
                     type: 'input',
                     name: 'lName',
-                    message: 'Enter the last name:',
+                    message: 'Enter the employees last name:',
                 }, 
                 {
                     type: 'list',
                     name: 'roleId',
-                    message: 'Choose the role',
+                    message: 'Choose the employees role:',
                     choices: res
                 },
                 {
                     type: 'list',
                     name: 'managerId',
-                    message: 'Choose the manager',
+                    message: 'Choose the employees manager:',
                     choices: managers
                 }
             ]).then(answers => {
                 connection.query('INSERT into employees(first_name,last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [answers.fName, answers.lName, answers.roleId, answers.managerId])
-                console.log('Your employee was added');
+                console.log('Your employee was added.');
                 prompt();
             })
         })  
@@ -212,5 +212,28 @@ function addAnEmployee() {
 
 // Function created to update an employee role 
 function updateAnEmployeeRole() {
-    
+    const query = "SELECT * FROM employees"; 
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        const query2 = 
+        inquirer
+            .prompt([
+                {
+                    type: 'list',
+                    name: 'selectEmployee',
+                    message: 'Select the employee to update:',
+                    choices: viewAllEmployees,
+                },
+                {
+                    type: 'list',
+                    name: 'selectNewRole',
+                    message: 'Select the employees new role:',
+                    choices: viewAllRoles,
+                }
+            ])
+            .then(answer => {
+                connection.query("INSERT INTO ")
+            })
+            ])
+    })
 }
