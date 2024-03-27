@@ -11,7 +11,6 @@ INSERT INTO role (title, salary, department_id) VALUES
 ('Receptionist', 40000, 3),
 ('Salesman', 90000, 2),
 ('Accountant', 80000, 4),
-('Accountant', 80000, 4),
 ('Salesman', 90000, 2),
 ('Customer Service Representative', 40000, 3);
 

@@ -174,7 +174,7 @@ function addAnEmployee() {
     const query = 'SELECT id AS VALUE, title AS name FROM role';
     connection.query(query, (err, res) => {
         if (err) console.log(err);
-        const query2 = 'SELECT id as value, concat (first_name, " ", last_name) AS name FROM employees'
+        const query2 = 'SELECT id AS VALUE, concat (first_name, " ", last_name) AS name FROM employees';
         connection.query(query2, (err, managers) => {
             if (err) console.log(err);
             inquirer
