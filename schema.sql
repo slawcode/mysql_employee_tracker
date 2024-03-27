@@ -10,13 +10,13 @@ CREATE TABLE department (
 -- Creates numeric column called 'id' which will automatically increment its default value as new rows are created
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 -- Makes a string column called 'name' which cannot contain null to hold the department name
-name VARCHAR(30) NOT NULL,
+name VARCHAR(30) NOT NULL
 );
 
 -- Create table role within employeeTracker_db
 CREATE TABLE role ( 
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-title VARCHAR(30) NOT NULL,
+title VARCHAR(40) NOT NULL,
 salary DECIMAL,
 department_id INT NOT NULL
 );
@@ -27,5 +27,5 @@ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 first_name VARCHAR(30) NOT NULL,
 last_name VARCHAR(30) NOT NULL,
 role_id INT NOT NULL,
-manager_id INT NOT NULL
+manager_id INT 
 );
