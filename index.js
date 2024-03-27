@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 
 connection.connect ((err) => {
     if (err) throw err;
-    console.log('Connected to the Employee Tracker database!');
+    console.log('Connected to the Employee Tracker database.');
     // Start the application
     prompt();
 });
@@ -78,18 +78,18 @@ function viewAllDepartments() {
         console.table(res);
         prompt();
         });
-}
+};
 
 // Function created to view all roles
 function viewAllRoles() {
-    const query = 'SELECT role.id, role.title, department.name FROM role join department on role.department_id = department.id';
+    const query = 'SELECT role.id, role.title, department.name FROM role join department ON role.department_id = department.id';
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.log('Viewing All Roles');
         console.table(res);
         prompt();
     });
-}
+};
 
 // Function created to view all employees
 function viewAllEmployees() {
@@ -109,7 +109,7 @@ function viewAllEmployees() {
         console.table(res);
         prompt();
     });
-}
+};
 
 // Function created to add a department
 function addADepartment() {
@@ -139,7 +139,7 @@ function addADepartment() {
 
 // Function created to add a role
 function addARole() {
-    const query = 'SELECT id as value, name as name FROM department';
+    const query = 'SELECT id AS value, name AS name FROM department';
     connection.query(query, (err, res) => {
         if (err) throw err;
         inquirer
@@ -157,7 +157,7 @@ function addARole() {
                 {
                     type: 'list',
                     name: 'departmentId',
-                    message: 'Choose the department',
+                    message: 'Choose the department:',
                     choices: res
                 }
             ]).then(answer => {
@@ -167,7 +167,7 @@ function addARole() {
             })
     })
 
-}
+};
 
 // Function created to add an employee
 function addAnEmployee() {
@@ -208,4 +208,9 @@ function addAnEmployee() {
             })
         })  
     })
+};
+
+// Function created to update an employee role 
+function updateAnEmployeeRole() {
+    
 }
