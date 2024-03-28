@@ -6,7 +6,8 @@
 - An Employee Tracker database was created so that a business owner could easily view and manage the departments, roles and employees in their company so that they could organize and plan their business. 
 - Initially, there were challenges faced with the syntax in MySQL files, which were causing errors in the generation of all the tables, but they were quickly resolved. 
 - There were also challenges in the index.js file when joining the tables. These were mostly syntax issues, which took a lot of trial and error to resolve. 
-- As well, the function to 'Update An Employee Role' is not showing any values and instead only shows undefined in the terminal. In future developlment I would like to fix this error along with adding the bonus features to this project. 
+- There are errors in the terminal when adding a new role and employee as some of the questions presented to the users are duplicated, then showing that they are created but not appearing in the tables. 
+- As well, the function to 'Update An Employee Role' is not showing any values and instead only shows undefined in the terminal. However, after going through the other options in the terminal only errors appear when the 'Update an Employee Role' option is selected. In future developlment, I would like to fix these errors in addition to adding the bonus features to this project. 
 - I also underestimated the amount of time this project would take and its length. I aimed to consolidate code and keep code consistent throughout, especially in the index.js file, while solidifying my understanding and learning of the concepts, which added to my challenges with time.
 - Through the making of this project I furthered my understanding of command-line applications and, especially, MySQL.
 - This project utilizes Node.JS, Inquirer, specifically version 8.2.4, and MySQL2. 
@@ -26,6 +27,7 @@ If the user does not already have MySQL installed they can go to http://dev.mysq
 
 - Video showing usage of this project in terminal to utilize Employee Tracker. 
 
+https://drive.google.com/file/d/1oZCjpF-Hs0ztd7wntLsaPyxGBewI5KYT/view
 
 - Screenshots showing usage of this project in terminal.
 
